@@ -33,6 +33,24 @@ def boxed_answer(target, label_text):
     label.next_to(box, DOWN, buff=0.3)
     return VGroup(box, label)
 
+class TitlePage(Scene):
+    def construct(self):
+        EQ_SIZE = 100
+        LABEL_SIZE = 34
+
+        one = MathTex(r"\text{Linear}", font_size=EQ_SIZE).set_color(ACCENT)
+        two = MathTex(r"\text{Equations}", font_size=EQ_SIZE)
+
+        title = VGroup(one, two).arrange(RIGHT, buff=0.25)
+        title.move_to(UP * 0.5)
+
+        lb = MathTex(r"\text{Philip Umeadi}",
+                     font_size=LABEL_SIZE)
+        lb.next_to(title, DOWN, buff=0.6)
+
+        self.add(title, lb)
+        self.wait()
+
 class CandleWordProblem(Scene):
     def construct(self):
         PROBLEM_FONT = 30
